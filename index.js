@@ -1,6 +1,5 @@
 'use strict';
 
-const Assert = require('assert');
 const EventEmitter = require('events').EventEmitter;
 const Readable = require('stream').Readable;
 
@@ -483,7 +482,6 @@ class Action extends Flow {
             if (typeof action === 'function') {
                 action = new FunctionAction(action);
             }
-            Assert.ok(action instanceof Action, 'The action beeing added does not of Action type');
             if (action.executed) {
                 throw new Error('The action should not be in progress when it is added to the other action');
             }
