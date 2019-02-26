@@ -160,6 +160,9 @@ class Flow {
                 }
 
                 cb(data, this);
+                if (this.eventContext._queue && this.eventContext._queue[topics]) {
+                  this.eventContext._queue[topics].shift();
+                }
             });
             return this;
         }
